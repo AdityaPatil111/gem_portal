@@ -332,7 +332,9 @@
   let savedStatus = {};
   let openRow = null;
 
-  const BACKEND = 'http://127.0.0.1:8000';
+  const BACKEND = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+  ? 'http://127.0.0.1:8000'
+  : window.location.origin;
 
   function handleFileUpload(event) {
     const file = event.target.files[0];
